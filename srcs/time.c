@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgeorgea <fgeorgea@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 12:40:56 by fgeorgea          #+#    #+#             */
-/*   Updated: 2023/06/11 18:38:50 by fgeorgea         ###   ########.fr       */
+/*   Created: 2023/06/11 19:04:04 by fgeorgea          #+#    #+#             */
+/*   Updated: 2023/06/11 19:14:37 by fgeorgea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-int	main(int argc, char **argv)
+size_t	get_time(void)
 {
-	t_philo	*philo;
+	t_timeval	tv;
+	size_t		time;
 
-	philo = init_struct();
-	if (!philo)
-		return (MALLOC_FAIL);
-	if (!init_values(argc, argv, &philo))
-		return (BAD_ARGS);
-	print_struct(philo);
-	return (0);
+	if (gettimeofday(&tv, NULL) == -1)
+		return (0);
+	time = (tv.tv_sec * 1000) + (tv.tv_usec / 1000 );
+	return (time);
+}
+
+size_t	get_delta_time(size_t start)
+{
+	return (get_time() - start);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgeorgea <fgeorgea@student.42.fr>          +#+  +:+       +#+         #
+#    By: fgeorgea <fgeorgea@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/08 12:37:27 by fgeorgea          #+#    #+#              #
-#    Updated: 2023/06/09 14:21:51 by fgeorgea         ###   ########.fr        #
+#    Updated: 2023/06/11 19:15:39 by fgeorgea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ DIR = srcs/
 SRC =	$(DIR)philo.c \
 		$(DIR)init.c \
 		$(DIR)lib_utils.c \
+		$(DIR)time.c \
+		$(DIR)str.c \
 		$(DIR)debug.c \
 		
 OBJ = ${SRC:.c=.o}

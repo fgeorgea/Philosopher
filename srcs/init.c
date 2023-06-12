@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgeorgea <fgeorgea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgeorgea <fgeorgea@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:48:13 by fgeorgea          #+#    #+#             */
-/*   Updated: 2023/06/09 14:27:20 by fgeorgea         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:19:54 by fgeorgea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	init_values(int argc, char **argv, t_philo **philo)
 {
 	int	overflow;
 
-	if (argc != 6)
+	if (argc != 6 && argc != 5)
 	{
-		printf("Found %d arguments, expected 5\n", argc - 1);
+		ft_putstr_fd("Args should be: nbr_philo, time_to_die, time_to_eat, time_to_sleep, (nbr_eat)", 2);
 		return (0);
 	}
 	overflow = 0;
@@ -44,12 +44,12 @@ int	init_values(int argc, char **argv, t_philo **philo)
 	overflow += ft_atoi(argv[5], &(*philo)->nbr_eat);
 	if (overflow != 5)
 	{
-		printf("Argument has overflow\n");
+		ft_putstr_fd("Argument has overflow\n", 2);
 		return (0);
 	}
 	else if (((*philo)->nbr_philo <= 0) || ((*philo)->time_death <= 0) || ((*philo)->time_eat <= 0) || ((*philo)->time_sleep <= 0) || ((*philo)->nbr_eat <= 0))
 	{
-		printf("Arg cannot have 0 or negative number as a value\n");
+		ft_putstr_fd("Arg cannot have 0 or negative number as a value\n", 2);
 		return (0);
 	}
 	return (1);
